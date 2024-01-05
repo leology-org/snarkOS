@@ -41,7 +41,8 @@ members = [
 ]
 
 [workspace.dependencies.snarkvm]
-version = "=0.16.15"
+git = "https://github.com/leology-org/snarkVM.git"
+branch = "minimal"
 features = [ "circuit", "console", "rocks" ]
 
 [[bin]]
@@ -51,6 +52,7 @@ path = "snarkos/main.rs"
 [features]
 jemalloc = [ "tikv-jemallocator" ]
 metrics = [ "snarkos-node-metrics", "snarkos-node/metrics" ]
+minimal = [ "snarkos-cli/minimal" ]
 
 [dependencies.anyhow]
 version = "1.0.77"

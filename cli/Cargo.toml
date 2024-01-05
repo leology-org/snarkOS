@@ -18,6 +18,7 @@ edition = "2021"
 
 [features]
 default = [ "snarkos-node/metrics" ]
+minimal = [ "snarkvm/minimal" ]
 
 [dependencies.aleo-std]
 version = "0.1.18"

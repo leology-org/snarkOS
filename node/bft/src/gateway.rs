@@ -15,42 +15,21 @@
 use crate::{
     events::{EventCodec, PrimaryPing},
     helpers::{assign_to_worker, Cache, PrimarySender, Resolver, SyncSender, WorkerSender},
-    spawn_blocking,
-    CONTEXT,
-    MAX_BATCH_DELAY_IN_MS,
-    MAX_GC_ROUNDS,
-    MAX_TRANSMISSIONS_PER_BATCH,
-    MAX_TRANSMISSIONS_PER_WORKER_PING,
-    MEMORY_POOL_PORT,
+    spawn_blocking, CONTEXT, MAX_BATCH_DELAY_IN_MS, MAX_GC_ROUNDS, MAX_TRANSMISSIONS_PER_BATCH,
+    MAX_TRANSMISSIONS_PER_WORKER_PING, MEMORY_POOL_PORT,
 };
 use snarkos_account::Account;
 use snarkos_node_bft_events::{
-    BlockRequest,
-    BlockResponse,
-    CertificateRequest,
-    CertificateResponse,
-    ChallengeRequest,
-    ChallengeResponse,
-    DataBlocks,
-    DisconnectReason,
-    Event,
-    EventTrait,
-    TransmissionRequest,
-    TransmissionResponse,
-    ValidatorsRequest,
+    BlockRequest, BlockResponse, CertificateRequest, CertificateResponse, ChallengeRequest, ChallengeResponse,
+    DataBlocks, DisconnectReason, Event, EventTrait, TransmissionRequest, TransmissionResponse, ValidatorsRequest,
     ValidatorsResponse,
 };
 use snarkos_node_bft_ledger_service::LedgerService;
 use snarkos_node_sync::communication_service::CommunicationService;
 use snarkos_node_tcp::{
-    is_bogon_ip,
-    is_unspecified_or_broadcast_ip,
+    is_bogon_ip, is_unspecified_or_broadcast_ip,
     protocols::{Disconnect, Handshake, OnConnect, Reading, Writing},
-    Config,
-    Connection,
-    ConnectionSide,
-    Tcp,
-    P2P,
+    Config, Connection, ConnectionSide, Tcp, P2P,
 };
 use snarkvm::{
     console::prelude::*,
@@ -1327,10 +1306,7 @@ mod prop_tests {
     use crate::{
         gateway::prop_tests::GatewayAddress::{Dev, Prod},
         helpers::{init_primary_channels, init_worker_channels, Storage},
-        Gateway,
-        Worker,
-        MAX_WORKERS,
-        MEMORY_POOL_PORT,
+        Gateway, Worker, MAX_WORKERS, MEMORY_POOL_PORT,
     };
     use snarkos_account::Account;
     use snarkos_node_bft_ledger_service::MockLedgerService;

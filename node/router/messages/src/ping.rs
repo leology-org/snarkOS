@@ -14,10 +14,7 @@
 
 use super::*;
 
-use snarkvm::prelude::{FromBytes, ToBytes};
-
 use indexmap::IndexMap;
-use std::borrow::Cow;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Ping<N: Network> {

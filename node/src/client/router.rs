@@ -13,28 +13,15 @@
 // limitations under the License.
 
 use super::*;
-use snarkos_node_router::{
-    messages::{
-        BlockRequest,
-        BlockResponse,
-        DataBlocks,
-        DisconnectReason,
-        MessageCodec,
-        Ping,
-        Pong,
-        PuzzleResponse,
-        UnconfirmedTransaction,
-    },
-    Routing,
+use snarkos_node_router::messages::{
+    BlockRequest, BlockResponse, DataBlocks, DisconnectReason, MessageCodec, Ping, Pong, PuzzleResponse,
+    UnconfirmedTransaction,
 };
 use snarkos_node_tcp::{Connection, ConnectionSide, Tcp};
-use snarkvm::{
-    ledger::narwhal::Data,
-    prelude::{block::Transaction, Network},
-};
+use snarkvm::{ledger::narwhal::Data, prelude::block::Transaction};
 
 use snarkos_node_sync::communication_service::CommunicationService;
-use std::{io, net::SocketAddr, time::Duration};
+use std::{io, time::Duration};
 
 impl<N: Network, C: ConsensusStorage<N>> P2P for Client<N, C> {
     /// Returns a reference to the TCP instance.

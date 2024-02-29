@@ -15,28 +15,11 @@
 use crate::{
     events::{BatchPropose, BatchSignature, Event},
     helpers::{
-        assign_to_worker,
-        assign_to_workers,
-        fmt_id,
-        init_sync_channels,
-        init_worker_channels,
-        now,
-        BFTSender,
-        PrimaryReceiver,
-        PrimarySender,
-        Proposal,
-        Storage,
+        assign_to_worker, assign_to_workers, fmt_id, init_sync_channels, init_worker_channels, now, BFTSender,
+        PrimaryReceiver, PrimarySender, Proposal, Storage,
     },
-    spawn_blocking,
-    Gateway,
-    Sync,
-    Transport,
-    Worker,
-    MAX_BATCH_DELAY_IN_MS,
-    MAX_TRANSMISSIONS_PER_BATCH,
-    MAX_WORKERS,
-    PRIMARY_PING_IN_MS,
-    WORKER_PING_IN_MS,
+    spawn_blocking, Gateway, Sync, Transport, Worker, MAX_BATCH_DELAY_IN_MS, MAX_TRANSMISSIONS_PER_BATCH, MAX_WORKERS,
+    PRIMARY_PING_IN_MS, WORKER_PING_IN_MS,
 };
 use snarkos_account::Account;
 use snarkos_node_bft_events::PrimaryPing;
@@ -1520,13 +1503,9 @@ mod tests {
     use super::*;
     use snarkos_node_bft_ledger_service::MockLedgerService;
     use snarkos_node_bft_storage_service::BFTMemoryService;
-    use snarkvm::{
-        ledger::committee::{Committee, MIN_VALIDATOR_STAKE},
-        prelude::{Address, Signature},
-    };
+    use snarkvm::ledger::committee::MIN_VALIDATOR_STAKE;
 
     use bytes::Bytes;
-    use indexmap::IndexSet;
     use rand::RngCore;
 
     type CurrentNetwork = snarkvm::prelude::Testnet3;
@@ -1840,9 +1819,10 @@ mod tests {
         primary.gateway.resolver().insert_peer(peer_ip, peer_ip, peer_account.1.address());
 
         // Try to process the batch proposal from the peer, should succeed.
-        assert!(
-            primary.process_batch_propose_from_peer(peer_ip, (*proposal.batch_header()).clone().into()).await.is_ok()
-        );
+        assert!(primary
+            .process_batch_propose_from_peer(peer_ip, (*proposal.batch_header()).clone().into())
+            .await
+            .is_ok());
     }
 
     #[tokio::test]
@@ -1907,15 +1887,13 @@ mod tests {
         primary.gateway.resolver().insert_peer(peer_ip, peer_ip, peer_account.1.address());
 
         // Try to process the batch proposal from the peer, should error.
-        assert!(
-            primary
-                .process_batch_propose_from_peer(peer_ip, BatchPropose {
-                    round: round + 1,
-                    batch_header: Data::Object(proposal.batch_header().clone())
-                })
-                .await
-                .is_err()
-        );
+        assert!(primary
+            .process_batch_propose_from_peer(
+                peer_ip,
+                BatchPropose { round: round + 1, batch_header: Data::Object(proposal.batch_header().clone()) }
+            )
+            .await
+            .is_err());
     }
 
     #[tokio::test]
@@ -1949,15 +1927,13 @@ mod tests {
         primary.gateway.resolver().insert_peer(peer_ip, peer_ip, peer_account.1.address());
 
         // Try to process the batch proposal from the peer, should error.
-        assert!(
-            primary
-                .process_batch_propose_from_peer(peer_ip, BatchPropose {
-                    round: round + 1,
-                    batch_header: Data::Object(proposal.batch_header().clone())
-                })
-                .await
-                .is_err()
-        );
+        assert!(primary
+            .process_batch_propose_from_peer(
+                peer_ip,
+                BatchPropose { round: round + 1, batch_header: Data::Object(proposal.batch_header().clone()) }
+            )
+            .await
+            .is_err());
     }
 
     #[tokio::test]

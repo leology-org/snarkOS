@@ -84,10 +84,13 @@ mod tests {
     fn test_assign_to_worker() {
         let data = "Hello Aleo".as_bytes();
         let sha = double_sha256(data);
-        assert_eq!(sha, [
-            113, 157, 210, 34, 60, 51, 220, 8, 63, 213, 79, 8, 117, 190, 134, 206, 127, 197, 21, 180, 116, 49, 218,
-            150, 49, 116, 116, 38, 244, 135, 215, 14
-        ]);
+        assert_eq!(
+            sha,
+            [
+                113, 157, 210, 34, 60, 51, 220, 8, 63, 213, 79, 8, 117, 190, 134, 206, 127, 197, 21, 180, 116, 49, 218,
+                150, 49, 116, 116, 38, 244, 135, 215, 14
+            ]
+        );
         let hash = sha256d_to_u128(data);
         assert_eq!(hash, 274520597840828436951879875061540363633u128);
         let transmission_id: TransmissionID<CurrentNetwork> = TransmissionID::Solution(PuzzleCommitment::default());

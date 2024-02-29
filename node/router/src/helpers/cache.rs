@@ -133,7 +133,11 @@ impl<N: Network> Cache<N> {
     /// Removes the block request for the given peer IP, returning `true` if the request was present.
     pub fn remove_outbound_block_request(&self, peer_ip: SocketAddr, request: &BlockRequest) -> bool {
         let mut map_write = self.seen_outbound_block_requests.write();
-        if let Some(requests) = map_write.get_mut(&peer_ip) { requests.remove(request) } else { false }
+        if let Some(requests) = map_write.get_mut(&peer_ip) {
+            requests.remove(request)
+        } else {
+            false
+        }
     }
 
     /// Returns `true` if the cache contains a puzzle request from the given peer.

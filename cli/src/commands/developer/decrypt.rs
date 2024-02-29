@@ -61,19 +61,7 @@ mod tests {
 
     use indexmap::IndexMap;
     use snarkvm::prelude::{
-        Address,
-        Entry,
-        Field,
-        Identifier,
-        Literal,
-        Network,
-        Owner,
-        Plaintext,
-        PrivateKey,
-        Scalar,
-        TestRng,
-        Uniform,
-        ViewKey,
+        Address, Entry, Field, Identifier, Literal, Network, Owner, Plaintext, PrivateKey, Scalar, TestRng, Uniform,
     };
 
     const ITERATIONS: usize = 1000;

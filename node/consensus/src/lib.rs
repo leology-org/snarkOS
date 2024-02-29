@@ -20,23 +20,14 @@ extern crate tracing;
 use snarkos_account::Account;
 use snarkos_node_bft::{
     helpers::{
-        fmt_id,
-        init_consensus_channels,
-        ConsensusReceiver,
-        PrimaryReceiver,
-        PrimarySender,
-        Storage as NarwhalStorage,
+        fmt_id, init_consensus_channels, ConsensusReceiver, PrimaryReceiver, PrimarySender, Storage as NarwhalStorage,
     },
-    spawn_blocking,
-    BFT,
-    MAX_GC_ROUNDS,
-    MAX_TRANSMISSIONS_PER_BATCH,
+    spawn_blocking, BFT, MAX_GC_ROUNDS, MAX_TRANSMISSIONS_PER_BATCH,
 };
 use snarkos_node_bft_ledger_service::LedgerService;
 use snarkos_node_bft_storage_service::BFTPersistentStorage;
 use snarkvm::{
     ledger::{
-        block::Transaction,
         coinbase::{ProverSolution, PuzzleCommitment},
         narwhal::{Data, Subdag, Transmission, TransmissionID},
     },
@@ -44,7 +35,6 @@ use snarkvm::{
 };
 
 use aleo_std::StorageMode;
-use anyhow::Result;
 use colored::Colorize;
 use indexmap::IndexMap;
 use lru::LruCache;

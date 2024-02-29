@@ -14,18 +14,9 @@
 
 use crate::{
     helpers::{
-        fmt_id,
-        init_bft_channels,
-        now,
-        BFTReceiver,
-        ConsensusSender,
-        PrimaryReceiver,
-        PrimarySender,
-        Storage,
-        DAG,
+        fmt_id, init_bft_channels, now, BFTReceiver, ConsensusSender, PrimaryReceiver, PrimarySender, Storage, DAG,
     },
-    Primary,
-    MAX_LEADER_CERTIFICATE_DELAY_IN_SECS,
+    Primary, MAX_LEADER_CERTIFICATE_DELAY_IN_SECS,
 };
 use snarkos_account::Account;
 use snarkos_node_bft_ledger_service::LedgerService;

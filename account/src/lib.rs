@@ -14,13 +14,9 @@
 
 #![forbid(unsafe_code)]
 
-use snarkvm::{
-    console::{network::prelude::*, types::Field},
-    prelude::*,
-};
+use snarkvm::{console::network::prelude::*, prelude::*};
 
 use colored::*;
-use core::fmt;
 
 /// A helper struct for an Aleo account.
 #[derive(Clone, Debug)]
@@ -162,7 +158,6 @@ impl<N: Network> Display for Account<N> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use snarkvm::prelude::Testnet3;
 
     type CurrentNetwork = Testnet3;
 

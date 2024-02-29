@@ -879,17 +879,12 @@ fn construct_request<N: Network>(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::locators::{
-        test_helpers::{sample_block_locators, sample_block_locators_with_fork},
-        CHECKPOINT_INTERVAL,
-        NUM_RECENT_BLOCKS,
-    };
+    use crate::locators::test_helpers::{sample_block_locators, sample_block_locators_with_fork};
     use snarkos_node_bft_ledger_service::MockLedgerService;
     use snarkvm::prelude::{Field, TestRng};
 
     use indexmap::indexset;
     use snarkvm::ledger::committee::Committee;
-    use std::net::{IpAddr, Ipv4Addr};
 
     type CurrentNetwork = snarkvm::prelude::Testnet3;
 

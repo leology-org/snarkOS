@@ -14,10 +14,6 @@
 
 use super::*;
 
-use snarkvm::prelude::{FromBytes, ToBytes};
-
-use std::borrow::Cow;
-
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 pub struct BlockRequest {
     /// The starting block height (inclusive).

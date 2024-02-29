@@ -14,8 +14,7 @@
 
 use std::{
     collections::HashSet,
-    fmt,
-    io,
+    fmt, io,
     net::{IpAddr, SocketAddr},
     ops::Deref,
     sync::{
@@ -39,9 +38,7 @@ use tracing::*;
 use crate::{
     connections::{Connection, ConnectionSide, Connections},
     protocols::{Protocol, Protocols},
-    Config,
-    KnownPeers,
-    Stats,
+    Config, KnownPeers, Stats,
 };
 
 // A sequential numeric identifier assigned to `Tcp`s that were not provided with a name.
@@ -503,7 +500,7 @@ impl fmt::Debug for Tcp {
 mod tests {
     use super::*;
 
-    use std::net::{IpAddr, Ipv4Addr};
+    use std::net::Ipv4Addr;
 
     #[tokio::test]
     async fn test_new() {

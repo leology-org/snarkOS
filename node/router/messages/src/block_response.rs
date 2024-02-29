@@ -14,12 +14,7 @@
 
 use super::*;
 
-use snarkvm::{
-    ledger::narwhal::Data,
-    prelude::{FromBytes, ToBytes},
-};
-
-use std::borrow::Cow;
+use snarkvm::ledger::narwhal::Data;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct BlockResponse<N: Network> {

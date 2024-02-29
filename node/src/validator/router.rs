@@ -14,23 +14,15 @@
 
 use super::*;
 use snarkos_node_router::messages::{
-    BlockRequest,
-    BlockResponse,
-    DataBlocks,
-    DisconnectReason,
-    Message,
-    MessageCodec,
-    Ping,
-    Pong,
-    UnconfirmedTransaction,
+    BlockRequest, BlockResponse, DataBlocks, DisconnectReason, Message, MessageCodec, Ping, Pong,
 };
 use snarkos_node_tcp::{Connection, ConnectionSide, Tcp};
 use snarkvm::{
     ledger::narwhal::Data,
-    prelude::{block::Transaction, coinbase::EpochChallenge, error, Network},
+    prelude::{block::Transaction, coinbase::EpochChallenge, error},
 };
 
-use std::{io, net::SocketAddr, time::Duration};
+use std::io;
 
 impl<N: Network, C: ConsensusStorage<N>> P2P for Validator<N, C> {
     /// Returns a reference to the TCP instance.

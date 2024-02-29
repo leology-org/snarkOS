@@ -15,11 +15,7 @@
 use crate::{
     events::{Event, TransmissionRequest, TransmissionResponse},
     helpers::{fmt_id, Pending, Ready, Storage, WorkerReceiver},
-    ProposedBatch,
-    Transport,
-    MAX_BATCH_DELAY_IN_MS,
-    MAX_TRANSMISSIONS_PER_BATCH,
-    MAX_TRANSMISSIONS_PER_WORKER_PING,
+    ProposedBatch, Transport, MAX_BATCH_DELAY_IN_MS, MAX_TRANSMISSIONS_PER_BATCH, MAX_TRANSMISSIONS_PER_WORKER_PING,
     MAX_WORKERS,
 };
 use snarkos_node_bft_ledger_service::LedgerService;
@@ -439,7 +435,6 @@ impl<N: Network> Worker<N> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use snarkos_node_bft_ledger_service::LedgerService;
     use snarkos_node_bft_storage_service::BFTMemoryService;
     use snarkvm::{
         console::{network::Network, types::Field},
@@ -572,10 +567,13 @@ mod tests {
         assert!(worker.pending.contains(transmission_id));
         let peer_ip = SocketAddr::from(([127, 0, 0, 1], 1234));
         // Fake the transmission response.
-        worker.finish_transmission_request(peer_ip, TransmissionResponse {
-            transmission_id,
-            transmission: Transmission::Solution(Data::Buffer(Bytes::from(vec![0; 512]))),
-        });
+        worker.finish_transmission_request(
+            peer_ip,
+            TransmissionResponse {
+                transmission_id,
+                transmission: Transmission::Solution(Data::Buffer(Bytes::from(vec![0; 512]))),
+            },
+        );
         // Check the transmission was removed from the pending set.
         assert!(!worker.pending.contains(transmission_id));
     }

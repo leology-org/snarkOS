@@ -15,7 +15,7 @@
 use snarkvm::prelude::*;
 
 use ::time::OffsetDateTime;
-use anyhow::{anyhow, Result};
+use anyhow::anyhow;
 use axum::{
     body::Body,
     http::{Request, StatusCode},

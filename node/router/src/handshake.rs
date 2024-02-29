@@ -14,8 +14,7 @@
 
 use crate::{
     messages::{ChallengeRequest, ChallengeResponse, DisconnectReason, Message, MessageCodec, MessageTrait},
-    Peer,
-    Router,
+    Peer, Router,
 };
 use snarkos_node_tcp::{ConnectionSide, Tcp, P2P};
 use snarkvm::{

@@ -14,8 +14,7 @@
 
 use crate::{
     messages::{DisconnectReason, Message, PeerRequest},
-    Outbound,
-    Router,
+    Outbound, Router,
 };
 use snarkvm::prelude::Network;
 

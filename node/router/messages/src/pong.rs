@@ -14,10 +14,6 @@
 
 use super::*;
 
-use snarkvm::prelude::{FromBytes, ToBytes};
-
-use std::borrow::Cow;
-
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Pong {
     pub is_fork: Option<bool>,

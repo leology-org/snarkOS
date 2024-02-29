@@ -39,7 +39,6 @@ pub fn check_timestamp_for_liveness(timestamp: i64) -> Result<()> {
 #[cfg(test)]
 mod prop_tests {
     use super::*;
-    use crate::MAX_TIMESTAMP_DELTA_IN_SECS;
 
     use proptest::prelude::*;
     use test_strategy::proptest;

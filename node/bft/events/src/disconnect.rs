@@ -14,8 +14,6 @@
 
 use super::*;
 
-use std::io;
-
 /// The reason behind the node disconnecting from a peer.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 #[repr(u8)]

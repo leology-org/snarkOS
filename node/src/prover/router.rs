@@ -15,19 +15,12 @@
 use super::*;
 
 use snarkos_node_router::messages::{
-    BlockRequest,
-    DisconnectReason,
-    Message,
-    MessageCodec,
-    Ping,
-    Pong,
-    PuzzleRequest,
-    UnconfirmedTransaction,
+    BlockRequest, DisconnectReason, MessageCodec, Ping, Pong, PuzzleRequest, UnconfirmedTransaction,
 };
 use snarkos_node_tcp::{Connection, ConnectionSide, Tcp};
-use snarkvm::prelude::{block::Transaction, Network};
+use snarkvm::prelude::block::Transaction;
 
-use std::{io, net::SocketAddr};
+use std::io;
 
 impl<N: Network, C: ConsensusStorage<N>> P2P for Prover<N, C> {
     /// Returns a reference to the TCP instance.

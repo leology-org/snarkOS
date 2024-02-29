@@ -5,7 +5,7 @@ orbs:
 
 commands:
   check_windows:
-    description: "Runs cargo check on Windows"
+    description: Runs cargo check on Windows
     parameters:
       workspace_member:
         type: string
@@ -14,7 +14,7 @@ commands:
       - restore_cache:
           key: cargo-cache-{{ arch }}-{{ checksum "Cargo.lock" }}
       - run:
-          name: "Install Rust and run cargo check"
+          name: Install Rust and run cargo check
           command: |
             $ProgressPreference = "SilentlyContinue"
             # Remove the circleci installed rustc.
@@ -42,7 +42,7 @@ commands:
           key: cargo-cache-{{ arch }}-{{ checksum "rust-version" }}-{{ checksum "Cargo.lock" }}
 
   setup_environment:
-    description: "Setup testing environment"
+    description: Setup testing environment
     parameters:
       cache_key:
         type: string
@@ -71,7 +71,7 @@ commands:
             - << parameters.cache_key >>
 
   clear_environment:
-    description: "Clear environment"
+    description: Clear environment
     parameters:
       cache_key:
         type: string
@@ -86,7 +86,7 @@ commands:
             - .cargo
 
   run_serial:
-    description: "Build and run tests"
+    description: Build and run tests
     parameters:
       workspace_member:
         type: string
@@ -106,7 +106,7 @@ commands:
           cache_key: << parameters.cache_key >>
 
   run_serial_long:
-    description: "Build and run long running tests"
+    description: Build and run long running tests
     parameters:
       workspace_member:
         type: string
@@ -126,7 +126,7 @@ commands:
           cache_key: << parameters.cache_key >>
 
   run_parallel:
-    description: "Build and run tests (in parallel)"
+    description: Build and run tests (in parallel)
     parameters:
       workspace_member:
         type: string
@@ -153,7 +153,7 @@ commands:
           cache_key: << parameters.cache_key >>
 
   install_rust_nightly:
-    description: "Install Rust nightly toolchain"
+    description: Install Rust nightly toolchain
     steps:
       - run: rustup toolchain install nightly-x86_64-unknown-linux-gnu
 
@@ -411,7 +411,7 @@ workflows:
   scheduled-workflow:
     triggers:
       - schedule:
-          cron: "0 0,12 * * *"
+          cron: 0 0,12 * * *
           filters:
             branches:
               only:
